@@ -1,0 +1,145 @@
+/* ================================
+   IMPORTACIÓN DE FUENTES
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caudex:wght@400;700&display=swap');
+
+/* ================================
+   VARIABLES GLOBALES
+================================ */
+:root {
+    --verde-link: #0E5135;
+    --verde-bosque: #1D3D2F;
+    --dorado-trifuerza: #D4AF37;
+    --rojo-corazon: #C20000;
+    --azul-hyliano: #2C5292;
+    --crema-pergamino: #FBE2C5;
+    --marron-cuero: #5D3A1A;
+
+    --fuente-principal: "MedievalSharp", serif;
+    --fuente-secundaria: "Spectral", serif;
+    --fuente-acento: "Caudex", serif;
+}
+
+/* Reset */
+body {
+    margin: 0;
+}
+
+/* ================================
+   BASE
+================================ */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--fuente-secundaria);
+    background-color: var(--crema-pergamino);
+    color: var(--verde-bosque);
+}
+
+/* =================================
+   CABECERA (HEADER)
+================================= */
+.cabecera {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--verde-bosque);
+    border-bottom: 3px solid var(--dorado-trifuerza);
+    color: white;
+}
+
+/* Logo */
+.logo-zelda {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Texto del header */
+.cabecera p {
+    font-family: var(--fuente-acento);
+}
+
+/* =================================
+   CONTENIDO PRINCIPAL
+================================= */
+main {
+    flex: 1;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Título principal */
+main h1 {
+    font-family: var(--fuente-principal);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: var(--verde-link);
+}
+
+/* Subtitulo */
+main p {
+    margin-bottom: 30px;
+}
+
+/* =================================
+   BUSCADOR
+================================= */
+.seccion_buscador {
+    display: flex;
+    justify-content: center;
+}
+
+/* Formulario */
+.buscador {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Selector */
+.buscador select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid var(--verde-bosque);
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Input */
+.buscador input {
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid var(--verde-bosque);
+    width: 260px;
+}
+
+/* =================================
+   FOOTER
+================================= */
+footer {
+    padding: 4px;
+    text-align: center;
+    background-color: var(--verde-bosque);
+    border-top: 3px solid var(--dorado-trifuerza);
+    color: white;
+}
+
+/* Copyright*/
+.copyright {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+/* Créditos */
+.creditos {
+    font-size: 0.8rem;
+    color: #ddd;
+}
