@@ -143,3 +143,29 @@ footer {
     font-size: 0.8rem;
     color: #ddd;
 }
+
+/* ================================
+   FAVORITOS
+================================ */
+
+.introduccion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.introduccion h1 {
+    font-family: var(--fuente-principal);
+    font-size: 2rem;
+    color: var(--verde-link);
+    margin-bottom: 10px;
+}
+
+.contenedor-favoritos {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid var(--dorado-trifuerza);
+    border-radius: 12px;
+    min-height: 250px;
+}
