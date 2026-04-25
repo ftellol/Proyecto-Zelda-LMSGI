@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Hyrule Encyclopedia</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/api.js" defer></script>
+    <script type="module" src="js/ui.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
 <header class="cabecera">
     <img src="assets/images/Logo_zelda.png" alt="Logo de Zelda" class="logo-zelda">
-    <p>⭐ Favoritos</p>
+    <p>💚 Favoritos</p>
 </header>
 
 <main>
@@ -30,7 +30,7 @@
                 <option value="Items">Objetos</option>
                 <option value="Games">Juegos</option>
             </select>
-            <input type="text" placeholder="Buscar la trifuerza...">
+            <input type="text" id="busqueda" placeholder="Buscar la trifuerza...">
         </form>
     </section>
 </main>
