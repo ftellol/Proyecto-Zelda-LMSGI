@@ -89,6 +89,20 @@ main p {
     margin-bottom: 30px;
 }
 
+.boton-header {
+    text-decoration: none;
+    color: white;
+    background-color: var(--dorado-trifuerza);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton-header:hover {
+    background-color: var(--azul-hyliano);
+}
+
 /* =================================
    BUSCADOR
 ================================= */
@@ -168,4 +182,32 @@ footer {
     border: 2px solid var(--dorado-trifuerza);
     border-radius: 12px;
     min-height: 250px;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+
+    main h1 {
+        font-size: 1.5rem;
+    }
+
+    .buscador {
+        flex-direction: column;
+        align-items: stretch;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .buscador select,
+    .buscador input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contenedor-favoritos {
+        width: 92%;
+        box-sizing: border-box;
+    }
 }
