@@ -161,6 +161,7 @@ footer {
 /* ================================
    FAVORITOS
 ================================ */
+
 /* Introducción */
 .introduccion {
     text-align: center;
@@ -215,7 +216,7 @@ footer {
     transition: 0.2s;
 }
 
-.boton-peligro:hover:not(:disabled) { opacity: 0.95; }
+.boton-peligro:hover:not(:disabled) { opacity: 0.85; }
 .boton-peligro:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* Lista de favoritos */
@@ -372,3 +373,99 @@ footer {
 }
 
 .btn-favorito:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* ================================
+   CATÁLOGO DE JUEGOS (XML)
+================================ */
+.seccion-catalogo {
+    max-width: 960px;
+    margin: 40px auto;
+}
+
+.tabla-juegos {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 2px solid var(--dorado-trifuerza);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tabla-juegos thead {
+    background: var(--verde-bosque);
+    color: white;
+}
+
+.tabla-juegos th,
+.tabla-juegos td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid;
+}
+
+/* Título del juego */
+.titulo-juego {
+    font-weight: 600;
+    color: var(--verde-link);
+}
+
+/* Puntuación */
+.puntuacion {
+    font-weight: 700;
+    color: var(--dorado-trifuerza);
+}
+
+/* Botón exportar */
+.boton-exportar {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: var(--verde-bosque);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.boton-exportar:hover {
+    background: var(--dorado-trifuerza);
+    color: var(--verde-bosque);
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+
+.tabla-juegos thead {
+    display: none;
+}
+
+.tabla-juegos tr {
+    display: block;
+    border: 2px solid var(--dorado-trifuerza);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background-color: white;
+}
+
+.tabla-juegos td {
+    display: block;
+    text-align: right;
+    border-bottom: 1px solid #f0ddb0;
+    padding: 8px 12px;
+}
+
+.tabla-juegos td::before {
+    content: attr(data-label);
+    float: left;
+    font-family: var(--fuente-acento);
+    font-weight: 700;
+    color: var(--verde-bosque);
+}
+
+.tabla-juegos td:last-child {
+    border-bottom: none;
+}
+}

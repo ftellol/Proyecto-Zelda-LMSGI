@@ -31,6 +31,28 @@
 
     <p id="estado-busqueda" class="estado"></p>
     <section id="resultados" class="contenedor-resultados"></section>
+
+    <section class="seccion-catalogo">
+        <h2>Catálogo de Juegos</h2>
+
+        <table class="tabla-juegos">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Desarrolladora</th>
+                <th>Plataforma</th>
+                <th>Año</th>
+                <th>Puntuación</th>
+            </tr>
+            </thead>
+            <tbody id="tbody-juegos">
+            <tr><td colspan="6">Cargando catálogo...</td></tr>
+            </tbody>
+        </table>
+
+        <button id="btn-exportar-csv" class="boton-exportar">Exportar CSV</button>
+    </section>
 </main>
 
 <footer>
@@ -39,6 +61,7 @@
 </footer>
 
 <script type="module" src="js/api.js"></script>
+<script type="module" src="js/transform.js"></script>
 
 </body>
 </html>
