@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Hyrule Encyclopedia</title>
     <link rel="stylesheet" href="css/style.css">
-    <script type="module" src="js/api.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -19,26 +18,27 @@
     <p>Explora el universo de The Legend of Zelda. Busca personajes, monstruos, lugares y más.</p>
 
     <section class="seccion_buscador">
-        <form class="buscador">
+        <form class="buscador" onsubmit="return false">
             <select id="tipo">
                 <option value="characters">Personajes</option>
                 <option value="monsters">Monstruos</option>
                 <option value="Bosses">Jefes</option>
-                <option value="Staff">Staff</option>
-                <option value="Dungeons">Dungeons</option>
                 <option value="Places">Lugares</option>
-                <option value="Items">Objetos</option>
-                <option value="Games">Juegos</option>
             </select>
             <input type="text" id="busqueda" placeholder="Buscar la trifuerza...">
         </form>
     </section>
+
+    <p id="estado-busqueda" class="estado"></p>
+    <section id="resultados" class="contenedor-resultados"></section>
 </main>
 
 <footer>
     <p class="copyright">Hyrule Encyclopedia&copy;. Todos los derechos reservados.</p>
     <p class="creditos">Diseñado y desarrollado por Fabio Tello - 1º DAW</p>
 </footer>
+
+<script type="module" src="js/api.js"></script>
 
 </body>
 </html>
