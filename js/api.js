@@ -1,4 +1,4 @@
-import { mostrarEstado } from "./ui.js";
+import { renderizarResultados, mostrarEstado } from "./ui.js";
 
 const apiUrl = "https://zelda.fanapis.com/api";
 
@@ -41,14 +41,12 @@ export async function buscarEntidades(tipo, termino) {
     }
 
     const json = await respuesta.json();
-    const todos = json.data ?? [];
-
-    const filtrados = todos.filter(entidad =>
+    const datos = json.data ?? [];
+    const filtrados = datos.filter(entidad =>
         entidad.name?.toLowerCase().includes(termino.toLowerCase())
     );
 
     guardarEnCache(clave, filtrados);
-    console.info(`[API] "${termino}" (${tipo}): ${filtrados.length} resultados cacheados.`);
 
     return filtrados;
 }
