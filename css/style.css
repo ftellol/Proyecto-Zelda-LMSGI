@@ -146,7 +146,7 @@ footer {
     color: white;
 }
 
-/* Copyright*/
+/* Copyright */
 .copyright {
     font-size: 0.9rem;
     margin-bottom: 5px;
@@ -161,6 +161,7 @@ footer {
 /* ================================
    FAVORITOS
 ================================ */
+/* Introducción */
 .introduccion {
     text-align: center;
     margin-bottom: 30px;
@@ -173,15 +174,83 @@ footer {
     margin-bottom: 10px;
 }
 
-.contenedor-favoritos {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-    background-color: white;
-    border: 2px solid var(--dorado-trifuerza);
-    border-radius: 12px;
-    min-height: 250px;
+/* Controles de filtro y orden */
+.controles-favoritos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
 }
+
+.controles-favoritos label {
+    font-family: var(--fuente-acento);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controles-favoritos select {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 2px solid var(--verde-bosque);
+    background-color: white;
+    font-family: var(--fuente-secundaria);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* Botón vaciar */
+.boton-peligro {
+    padding: 8px 14px;
+    background-color: var(--rojo-corazon);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--fuente-acento);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.boton-peligro:hover:not(:disabled) { opacity: 0.95; }
+.boton-peligro:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Lista de favoritos */
+.contenedor-favoritos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 250px;
+    text-align: left;
+}
+
+/* Botón eliminar favorito */
+.btn-eliminar {
+    margin-top: 8px;
+    padding: 7px 12px;
+    border: 2px solid var(--rojo-corazon);
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--rojo-corazon);
+    font-family: var(--fuente-acento);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    align-self: flex-start;
+}
+
+.btn-eliminar:hover:not(:disabled) {
+    background-color: var(--rojo-corazon);
+    color: white;
+}
+
+.btn-eliminar:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* ================================
    RESPONSIVE
@@ -206,8 +275,15 @@ footer {
     }
 
     .contenedor-favoritos {
+        grid-template-columns: 1fr;
         width: 92%;
         box-sizing: border-box;
+    }
+
+    .controles-favoritos {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 16px;
     }
 }
 
@@ -269,3 +345,30 @@ footer {
     color: var(--marron-cuero);
     font-family: var(--fuente-acento);
 }
+
+/* Botón guardar favorito */
+.btn-favorito {
+    margin-top: 8px;
+    padding: 7px 12px;
+    border: 2px solid var(--verde-link);
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--verde-link);
+    font-family: var(--fuente-acento);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    align-self: flex-start;
+}
+
+.btn-favorito:hover:not(:disabled) {
+    background-color: var(--verde-link);
+    color: white;
+}
+
+.btn-favorito.guardado {
+    background-color: var(--verde-link);
+    color: white;
+}
+
+.btn-favorito:disabled { opacity: 0.6; cursor: not-allowed; }
