@@ -53,7 +53,7 @@ export async function vaciarFavoritos() {
 /* Comprobar si alguno ya está en favoritos */
 export async function comprobarFavorito(entidadId) {
     const consulta = query(collection(db, coleccion), where("entidadId", "==", entidadId));
-    const resultado = await getDocs(q);
+    const resultado = await getDocs(consulta);
     if (resultado.empty) return null;
     return resultado.docs[0].id;
 }
