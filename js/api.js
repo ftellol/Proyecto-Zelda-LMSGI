@@ -1,3 +1,5 @@
+import { mostrarEstado } from "./ui.js";
+
 const apiUrl = "https://zelda.fanapis.com/api";
 
 /* Caché en localStorage */
@@ -9,7 +11,7 @@ function guardarEnCache(clave, datos) {
     try {
         localStorage.setItem(clave, JSON.stringify(datos));
     } catch (error) {
-        console.warn("localStorage lleno, no se pudo cachear:", error.message);
+        mostrarEstado("error", "El almacenamiento local está lleno. La caché no funcionará.");
     }
 }
 
@@ -21,4 +23,32 @@ function leerDeCache(clave) {
     } catch {
         return null;
     }
+}
+
+export async function buscarEntidades(tipo, termino) {
+    const clave = generarClave(tipo, termino);
+
+    const cache = leerDeCache(clave);
+    if (cache !== null) {
+        return cache;
+    }
+
+    const url = `${apiUrl}/${tipo}?limit=50&page=0`;
+    const respuesta = await fetch(url);
+
+    if (!respuesta.ok) {
+        throw new Error(`Error ${respuesta.status}: ${respuesta.statusText}`);
+    }
+
+    const json = await respuesta.json();
+    const todos = json.data ?? [];
+
+    const filtrados = todos.filter(entidad =>
+        entidad.name?.toLowerCase().includes(termino.toLowerCase())
+    );
+
+    guardarEnCache(clave, filtrados);
+    console.info(`[API] "${termino}" (${tipo}): ${filtrados.length} resultados cacheados.`);
+
+    return filtrados;
 }
