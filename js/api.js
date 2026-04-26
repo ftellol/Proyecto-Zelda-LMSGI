@@ -52,3 +52,12 @@ export async function buscarEntidades(tipo, termino) {
 
     return filtrados;
 }
+
+/* Debounce */
+export function debounce(funcion, espera = 400) {
+    let temporizador;
+    return function (...args) {
+        clearTimeout(temporizador);
+        temporizador = setTimeout(() => funcion.apply(this, args), espera);
+    };
+}
