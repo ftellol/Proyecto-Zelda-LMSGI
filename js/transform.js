@@ -59,9 +59,9 @@ let catalogoJson = [];
         const xml = await cargarXML();
         catalogoJson = xmlAJson(xml);
         renderizarTabla(catalogoJson);
-    } catch (e) {
+    } catch (error) {
         const tbody = document.getElementById("tbody-juegos");
-        if (tbody) tbody.innerHTML = `<tr><td colspan="6" class="error-tabla">${e.message}</td></tr>`;
+        if (tbody) tbody.innerHTML = `<tr><td colspan="6" class="error-tabla">${error.message}</td></tr>`;
     }
 })();
 
