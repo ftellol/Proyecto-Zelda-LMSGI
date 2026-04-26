@@ -59,3 +59,42 @@ export function debounce(funcion, espera = 400) {
         temporizador = setTimeout(() => funcion.apply(this, args), espera);
     };
 }
+
+/* Lógica del buscador: Eventos y control de la pantalla */
+const inputBusqueda = document.getElementById("busqueda");
+const selectorTipo  = document.getElementById("tipo");
+
+if (inputBusqueda && selectorTipo) {
+    const lanzarBusqueda = debounce(async () => {
+        const termino = inputBusqueda.value.trim();
+        const tipo    = selectorTipo.value;
+
+        if (!termino) {
+            renderizarResultados([]);
+            mostrarEstado("");
+            return;
+        }
+
+        mostrarEstado("Buscando...", "cargando");
+
+        try {
+            const resultados = await buscarEntidades(tipo, termino);
+            renderizarResultados(resultados, tipo);
+
+            if (resultados.length === 0) {
+                mostrarEstado(`No se encontraron resultados para "${termino}".`, "vacio");
+            } else {
+                mostrarEstado("");
+            }
+        } catch (error) {
+            mostrarEstado(`Error al conectar con la API: ${error.message}`, "error");
+            renderizarResultados([]);
+        }
+    }, 400);
+
+    inputBusqueda.addEventListener("input", lanzarBusqueda);
+
+    selectorTipo.addEventListener("change", () => {
+        if (inputBusqueda.value.trim()) lanzarBusqueda();
+    });
+}
