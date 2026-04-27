@@ -1,9 +1,7 @@
 async function cargarXML() {
     const respuesta = await fetch("data/juegos.xml");
-    if (!respuesta.ok) throw new Error(`No se pudo cargar juegos.xml (${respuesta.status})`);
     const texto = await respuesta.text();
     const xml = new DOMParser().parseFromString(texto, "application/xml");
-    if (xml.querySelector("parsererror")) throw new Error("XML inválido");
     return xml;
 }
 
